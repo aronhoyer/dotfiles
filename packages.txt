@@ -5,6 +5,7 @@ curl
 fzf
 gettext
 git
+grimshot
 libfontconfig1-dev
 libfreetype6-dev
 libxcb-xfixes0-dev

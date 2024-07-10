@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+dir="$1"
+
+if [[ $# -ne 1 ]]; then
+	dir="$(find ~/personal ~/.config ~/pkg ~ -maxdepth 1 -mindepth 1 -type d | fzf)"
+fi
+
+if [[ -z $dir ]]; then
+	exit 130
+fi
+
+base="$(basename $dir)"
+
+if [[ -z $TMUX ]]; then
+	tmux new-session -As "$base" -c "$dir"
+else
+	tmux new-session -ds "$base" -c "$dir"
+	tmux switch-client -t "$base"
+fi

@@ -56,3 +56,5 @@ ln -s $PWD/sesh $LOCAL_BIN/sesh
 ln -s $PWD/.config/* $HOME/.config
 
 cp ./pictures/* $HOME/Pictures
+
+# TODO: install Nordic-darker theme

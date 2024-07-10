@@ -9,6 +9,8 @@ set $term /usr/local/bin/alacritty
 
 set $menu rofi -show drun
 
+set $explorer thunar
+
 include /etc/sway/config-vars.d/*
 
 output * bg /home/aron/Pictures/jinx.jpg fill
@@ -45,6 +47,8 @@ bindsym $mod+Return exec $term
 bindsym $mod+q kill
 
 bindsym $mod+d exec $menu
+
+bindsym $mod+t exec $explorer
 
 floating_modifier $mod normal
 
@@ -130,8 +134,8 @@ client.urgent           #f9e2af     #f9e2af     #1e1e2e     #f9e2af     #f9e2af
 gaps inner 8
 
 exec_always {
-    gsettings set org.gnome.desktop.interface gtk-theme Nordic
-    gsettings set org.gnome.desktop.wm.preferences theme Nordic
+    gsettings set org.gnome.desktop.interface gtk-theme Nordic-darker
+    gsettings set org.gnome.desktop.wm.preferences theme Nordic-darker
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
     xdg-mime default thunar.desktop inode/directory

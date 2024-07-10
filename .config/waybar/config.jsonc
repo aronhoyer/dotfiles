@@ -73,7 +73,7 @@
 		"format": "{icon}",
 		"format-muted": "󰝟",
 		"format-source": "{volume}%",
-		"tooltip": false,
+		"tooltip-format": "{volume}%",
 		"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"format-icons": {
 			"default": ["", "", ""]

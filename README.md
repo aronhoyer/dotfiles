@@ -1,5 +1,8 @@
 # dotfiles
 
+> [!NOTE]
+> [install.sh](./install.sh) is not yet tested and might not work as intended.
+
 - sway
 - waybar
 - rofi

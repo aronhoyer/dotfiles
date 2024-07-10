@@ -28,6 +28,8 @@ cpack -G DEB
 sudo nala install ./build/nvim-linux64.deb
 popd
 
+git clone https://github.com/aronhoyer/init.lua.git $HOME/.config/nvim
+
 git clone https://github.com/alacritty/alacritty.git $PKG_PREFIX/alacritty
 
 pushd $PKG_PREFIX/alacritty

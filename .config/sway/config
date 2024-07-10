@@ -111,10 +111,10 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindsym Mod4+p       exec grimshot --notify save screen
-bindsym Mod4+Shift+p exec grimshot --notify save area
-bindsym Mod4+Mod1+p  exec grimshot --notify save output
-bindsym Mod4+Ctrl+p  exec grimshot --notify save window
+bindsym Mod4+p       exec grimshot save screen
+bindsym Mod4+Shift+p exec grimshot save area
+bindsym Mod4+Mod1+p  exec grimshot save output
+bindsym Mod4+Ctrl+p  exec grimshot save window
 
 default_border pixel 1
 default_floating_border none

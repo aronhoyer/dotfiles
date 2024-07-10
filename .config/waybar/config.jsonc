@@ -40,7 +40,7 @@
 	},
 	"clock": {
 		"tooltip": false,
-		"format": "{:%a %d %b %Y %H:%M}",
+		"format": "{:%a %d %b %H:%M}",
 	},
 	"battery": {
 		"states": {

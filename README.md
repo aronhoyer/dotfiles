@@ -6,4 +6,5 @@
 - alacritty
 - catppuccin
 
-![Screenshot of terminals](./screen.png)
+![Screenshot of terminals](./screen_terms.png)
+![Screenshot of backdrop](./screen_backdrop.png)

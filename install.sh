@@ -54,3 +54,5 @@ ln -s $PWD/.zshrc $HOME/.zshrc
 ln -s $PWD/.tmux.conf $HOME/.tmux.conf
 ln -s $PWD/sesh $LOCAL_BIN/sesh
 ln -s $PWD/.config/* $HOME/.config
+
+cp ./pictures/* $HOME/Pictures

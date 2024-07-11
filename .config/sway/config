@@ -36,11 +36,8 @@ input * {
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-
-#define XKB_KEY_XF86MonBrightnessUp    0x1008FF02  /* Monitor/panel brightness */
-#define XKB_KEY_XF86MonBrightnessDown  0x1008FF03  /* Monitor/panel brightness */
-bindsym 0x1008FF02 exec sudo light -A 10
-bindsym 0x1008FF03 exec sudo light -U 10
+bindsym XF86MonBrightnessUp   exec brightnessctl -q set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl -q set 10%-
 
 bindsym $mod+Return exec $term
 
@@ -115,10 +112,25 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindsym Mod4+p       exec grimshot save screen
-bindsym Mod4+Shift+p exec grimshot save area
-bindsym Mod4+Mod1+p  exec grimshot save output
-bindsym Mod4+Ctrl+p  exec grimshot save window
+bindsym $mod+p       exec grimshot save screen
+bindsym $mod+Shift+p exec grimshot save area
+bindsym $mod+Ctrl+p  exec grimshot save window
+
+set $exit "exit: [s]leep, [p]oweroff, [r]eboot, [l]ogout"
+mode $exit {
+    bindsym --to-code {
+        s exec systemctl suspend, mode "default"
+        p exec systemctl poweroff
+        r exec systemctl reboot
+        l exec swaymsg exit
+    
+        Return mode "default"
+        Escape mode "default"
+        $mod+x mode "default"
+    }
+}
+
+bindsym --to-code $mod+x mode $exit
 
 default_border pixel 1
 default_floating_border none
@@ -143,12 +155,14 @@ exec_always {
 
 bar swaybar_command waybar
 
-exec swaymsg 'assign [class="Alacritty"] workspace 1'
+exec swaymsg 'assign [app_id="Alacritty"] workspace 1'
 exec swaymsg 'assign [class="Firefox-esr"] workspace 2'
-exec swaymsg 'assign [class="Spotify"] workspace 3'
+exec swaymsg 'assign [app_id="evolution"] workspace 3'
+exec swaymsg 'assign [class="Spotify"] workspace 4'
 
 exec alacritty
 exec firefox-esr
+exec evolution
 exec spotify
 
 include /etc/sway/config.d/*

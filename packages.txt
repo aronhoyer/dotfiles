@@ -1,11 +1,15 @@
 bat
+bluez-tools
+brightnessctl
 build-essential
 cmake
 curl
 fzf
 gettext
+gimp
 git
 grimshot
+htop
 libfontconfig1-dev
 libfreetype6-dev
 libxcb-xfixes0-dev
@@ -16,6 +20,8 @@ ninja-build
 pavucontrol
 pkg-config
 pulseaudio
+qbittorrent
+rfkill
 ripgrep
 rofi
 scdoc

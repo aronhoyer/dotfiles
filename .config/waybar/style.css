@@ -2,12 +2,13 @@
 	color: rgb(205, 214, 244);
 }
 
+#custom-distro,
 #window,
 #workspaces,
 #network,
 #pulseaudio,
 #battery,
-#clock {
+#clock{
 	background-color: rgba(30, 30, 46, 0.9);
 }
 
@@ -22,11 +23,18 @@ button {
 	border: none;
 	border-radius: 0;
 	color: inherit;
+	background-color: transparent;
+	transition: none;
 }
 
-#window, #workspaces {
+#custom-distro, #window, #workspaces {
 	padding: 0 12px;
 	border-radius: 8px;
+}
+
+#custom-distro {
+	padding: 0;
+	min-width: 36px;
 }
 
 #window {

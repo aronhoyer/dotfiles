@@ -5,7 +5,7 @@
 	"margin-left": 4,
 	"margin-right": 4,
 	"margin-top": 4,
-	"modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
+	"modules-left": ["custom/distro", "custom/spacer", "sway/workspaces"],
 	"modules-center": ["sway/window"],
 	"modules-right": ["network", "pulseaudio#out", "pulseaudio#source", "battery", "custom/spacer", "clock"],
 
@@ -24,7 +24,8 @@
 		"format-icons": {
 			"1": " ",
 			"2": "",
-			"3": "",
+			"3": "",
+			"4": "",
 			"urgent": "",
 			"focused": "",
 			"default": ""
@@ -58,16 +59,16 @@
 		"bat": "BAT2"
 	},
 	"network": {
-        "format-wifi": "{icon}",
+		"format-wifi": "{icon}",
 		"format-icons": [ "󰤟", "󰤢", "󰤥", "󰤨"],
 		"format-disabled-wifi": "󰤭",
-        "format-ethernet": "󰈀",
-        "format-linked": "󰈀",
+		"format-ethernet": "󰈀",
+		"format-linked": "󰈀",
 		"format-linked-wifi": "󰤩",
-        "format-disconnected": "⚠",
-        "tooltip-format": "{ipaddr}",
-        "on-click": "nm-connection-editor"
-    },
+		"format-disconnected": "⚠",
+		"tooltip-format": "{ipaddr}",
+		"on-click": "nm-connection-editor"
+	},
 	"pulseaudio#out": {
 		// "scroll-step": 1, // %, can be a float
 		"format": "{icon}",
@@ -94,16 +95,8 @@
 		"on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5% && ~/.config/sway/mic.sh",
 		"on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5% && ~/.config/sway/mic.sh"
 	},
-	"custom/power": {
-		"format" : "⏻",
+	"custom/distro": {
+		"format" : "",
 		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
 	}
 }

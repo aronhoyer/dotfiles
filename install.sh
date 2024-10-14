@@ -5,8 +5,12 @@ sudo apt update && sudo apt install nala && sudo nala upgrade
 
 echo "Installing packages from $PWD/packages.txt"
 sudo nala install "$(cat ./packages.txt | head -c -1 | tr '\n' ' ')"
+
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+ZSH=$HOME/.config/ohmyzsh
+curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh -s -- --unattended --keep-zshrc
 
 $LOCAL_BIN="$HOME/.local/bin"
 mkdir -p -v $LOCAL_BIN
@@ -52,10 +56,12 @@ scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5
 scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null
 popd
 
-ln -s $PWD/.zshrc $HOME/.zshrc
-ln -s $PWD/.tmux.conf $HOME/.tmux.conf
-ln -s $PWD/sesh $LOCAL_BIN/sesh
-ln -s $PWD/.config/* $HOME/.config
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
+ln -s $SCRIPT_DIR/.zshrc $HOME/.zshrc
+ln -s $SCRIPT_DIR/.tmux.conf $HOME/.tmux.conf
+ln -s $SCRIPT_DIR/sesh $LOCAL_BIN/sesh
+ln -s $SCRIPT_DIR/.config/* $HOME/.config
 
 cp ./pictures/* $HOME/Pictures
 

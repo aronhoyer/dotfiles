@@ -1,20 +1,30 @@
 #!/usr/bin/env bash
 
-dir="$1"
+session() {
+	tmux new-session -ds "$1" -c "$2" "$(which nvim) ."
+	tmux new-window -t "$1" -dc "$2"
+	tmux new-window -t "$1" -dc "$2"
+}
+
+selected="$1"
 
 if [[ $# -ne 1 ]]; then
-	dir="$(find ~/personal ~/.config ~/pkg ~ -maxdepth 1 -mindepth 1 -type d | fzf)"
+	selected="$(find ~/personal ~/powerfeud ~/.config ~/pkg ~ -maxdepth 1 -mindepth 1 -type d | fzf)"
 fi
 
-if [[ -z $dir ]]; then
+if [[ -z $selected ]]; then
 	exit 130
 fi
 
-base="$(basename $dir)"
+name="$(basename $selected | tr . _)"
 
 if [[ -z $TMUX ]]; then
-	tmux new-session -As "$base" -c "$dir"
+	session "$name" "$selected"
+	tmux attach-session -t "$name"
 else
-	tmux new-session -ds "$base" -c "$dir"
-	tmux switch-client -t "$base"
+	if ! tmux has-session -t "$name" 2> /dev/null; then
+		session "$name" "$selected"
+	fi
+
+	tmux switch-client -t "$name"
 fi

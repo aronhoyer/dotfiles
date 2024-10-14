@@ -4,12 +4,14 @@ TERM = "xterm-256color"
 [window]
 opacity = 0.9
 padding = { x = 10, y = 10}
+dynamic_title = false
+dynamic_padding = true
 
 [font]
 normal = { family = "Hack Nerd Font", style = "Regular" }
 bold = { family = "Hack Nerd Font", style = "Bold" }
 italic = { family = "Hack Nerd Font", style = "Italic" }
-size = 10
+size = 9
 
 [colors.primary]
 background = "#1e1e2e"

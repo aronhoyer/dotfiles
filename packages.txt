@@ -18,6 +18,7 @@ light
 neofetch
 ninja-build
 pavucontrol
+pass
 pkg-config
 pulseaudio
 qbittorrent

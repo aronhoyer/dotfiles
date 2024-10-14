@@ -23,8 +23,8 @@
 		"format": "{}",
 		"format-icons": {
 			"1": " ",
-			"2": "",
-			"3": "",
+			"2": "",
+			"3": "",
 			"4": "",
 			"urgent": "",
 			"focused": "",
@@ -66,7 +66,7 @@
 		"format-linked": "󰈀",
 		"format-linked-wifi": "󰤩",
 		"format-disconnected": "⚠",
-		"tooltip-format": "{ipaddr}",
+		"tooltip-format": "{ifname} {ipaddr}",
 		"on-click": "nm-connection-editor"
 	},
 	"pulseaudio#out": {

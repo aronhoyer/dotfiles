@@ -13,9 +13,9 @@ set $explorer thunar
 
 include /etc/sway/config-vars.d/*
 
-output * bg /home/aron/Pictures/outrunred.jpg fill
+output * bg /home/aron/Pictures/jinx.jpg fill
 output eDP-1 resolution 3456x2160 position 0,0
-output DP-3 resolution 1920x1080 position 0,0
+output DP-3 resolution 2560x1440 position 0,0
 
 bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
@@ -43,8 +43,9 @@ input "1133:45085:Logitech_MX_Ergo_Multi-Device_Trackball" {
 }
 
 input * {
-    xkb_layout "us"
-    xkb_variant "mac"
+    xkb_layout us
+    xkb_variant mac
+    # xkb_options lv3:alt_switch
 }
 
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -167,6 +168,8 @@ exec_always {
     xdg-mime default thunar.desktop inode/directory
 }
 
+exec pulseaudio --start
+
 bar swaybar_command waybar
 
 exec swaymsg 'assign [app_id="Alacritty"] workspace 1'
@@ -177,8 +180,10 @@ exec swaymsg 'assign [app_id="evolution"] workspace 3'
 exec swaymsg 'assign [class="Slack"] workspace 3'
 exec swaymsg 'assign [class="Spotify"] workspace 4'
 
+exec swaymsg 'workspace 1'
+
 exec alacritty
-exec zen
+exec firefox
 exec slack
 exec evolution
 exec spotify

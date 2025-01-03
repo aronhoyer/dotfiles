@@ -3,4 +3,4 @@
 	url = https://github.com/aronhoyer/init.lua
 [submodule ".config/ohmyzsh"]
 	path = .config/ohmyzsh
-	url = https://github.com/ohmyzsh/ohmyzsh.git
+	url = https://github.com/aronhoyer/ohmyzsh

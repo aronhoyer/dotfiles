@@ -2,12 +2,23 @@
 	"layer": "top", // Waybar at top layer
 	"position": "top", // Waybar at the bottom of your screen
 	"height": 32, // Waybar height
-	"margin-left": 4,
-	"margin-right": 4,
-	"margin-top": 4,
-	"modules-left": ["custom/distro", "custom/spacer", "sway/workspaces"],
-	"modules-center": ["sway/window"],
-	"modules-right": ["network", "pulseaudio#out", "pulseaudio#source", "battery", "custom/spacer", "clock"],
+	// "margin-left": 4,
+	// "margin-right": 4,
+	// "margin-top": 4,
+	"modules-left": [
+		"custom/distro",
+		// "custom/spacer",
+		"sway/workspaces"
+	],
+	// "modules-center": ["sway/window"],
+	"modules-right": [
+		"network",
+		"pulseaudio#out",
+		"pulseaudio#source",
+		"battery",
+		// "custom/spacer",
+		"clock"
+	],
 
 	// Modules configuration
 	"custom/spacer": {
@@ -25,7 +36,6 @@
 			"1": " ",
 			"2": "",
 			"3": "",
-			"4": "",
 			"urgent": "",
 			"focused": "",
 			"default": ""

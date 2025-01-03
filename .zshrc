@@ -1,3 +1,7 @@
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CONFIG_HOME="$HOME/.config"
+
 export ZSH="$HOME/.config/ohmyzsh"
 
 ZSH_THEME="ez"
@@ -8,13 +12,10 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export EDITOR="$(which nvim)"
 
+export PATH="$PATH:$HOME/.local/bin:/usr/local/go/bin:$HOME/go/bin"
+
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-# Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/aron/.zsh/completions:"* ]]; then export FPATH="/home/aron/.zsh/completions:$FPATH"; fi
-export PATH=$HOME/bin:$HOME/.local/bin:$HOME/go/bin:/usr/local/go/bin:/usr/local/bin:$PATH
-
 
 . $HOME/.cargo/env
 
@@ -31,5 +32,4 @@ t() {
     touch $1 &> /dev/null || mkdir -p $(dirname $1) && touch $1
 }
 
-bindkey -s ^f "sesh"
-. "/home/aron/.deno/env"
+bindkey -s ^f "sesh\n"

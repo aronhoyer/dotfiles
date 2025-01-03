@@ -5,7 +5,7 @@ set $down j
 set $up k
 set $right l
 
-set $term /usr/local/bin/alacritty
+set $term /home/aron/.local/bin/alacritty
 
 set $menu rofi -show drun
 
@@ -158,12 +158,18 @@ client.focused_inactive #45475a     #45475a     #1e1e2e     #45475a     #45475a
 client.unfocused        #45475a     #45475a     #cdd6f4     #45475a     #45475a
 client.urgent           #f9e2af     #f9e2af     #1e1e2e     #f9e2af     #f9e2af
 
-gaps inner 8
+# gaps inner 8
+
+set $schema "org.gnome.desktop.interface"
 
 exec_always {
-    gsettings set org.gnome.desktop.interface gtk-theme Nordic-darker
+    gsettings set $schema gtk-theme Nordic-darker
+    gsettings set $schema icon-theme Adwaita
+    gsettings set $schema color-scheme prefer-dark
+    gsettings set $schema gtk-application-prefer-dark-theme true
+
     gsettings set org.gnome.desktop.wm.preferences theme Nordic-darker
-    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    gsettings set org.gnome.desktop.wm.preferences button-layout :
 
     xdg-mime default thunar.desktop inode/directory
 }
@@ -173,20 +179,14 @@ exec pulseaudio --start
 bar swaybar_command waybar
 
 exec swaymsg 'assign [app_id="Alacritty"] workspace 1'
-exec swaymsg 'assign [class="Firefox-esr"] workspace 2'
-exec swaymsg 'assign [class="Google-chrome"] workspace 2'
-exec swaymsg 'assign [class="zen-alpha"] workspace 2'
+exec swaymsg 'assign [app_id="firefox-esr"] workspace 2'
 exec swaymsg 'assign [app_id="evolution"] workspace 3'
-exec swaymsg 'assign [class="Slack"] workspace 3'
-exec swaymsg 'assign [class="Spotify"] workspace 4'
 
 exec swaymsg 'workspace 1'
 
-exec alacritty
+exec $term
 exec firefox
-exec slack
 exec evolution
-exec spotify
 
 for_window [app_id="thunar"] floating enable, resize set 960 600
 
